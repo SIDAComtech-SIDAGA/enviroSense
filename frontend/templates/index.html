@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <h1>Calculate Your Carbon Footprint</h1>
+    <form action="" method="POST">
+        <label for="electricity">Electricity Usage (kWh): </label>
+        <input type="number" id="electricity" name="electricity" required><br><br>
+
+        <label for="mileage">Car Mileage (km): </label>
+        <input type="number" id="mileage" name="mileage" required><br><br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if total %}
+    <h2>Results</h2>
+    <p>Electricity Emissions: {{ elec_emissions }} kg CO<sub>2</sub></p>
+    <p>Car Emissions: {{ car_emissions }} kg CO<sub>2</sub></p>
+    <p>Total Carbon Footprint: {{ total }} kg CO<sub>2</sub></p>
+    {% endif %}
+    
+</body>
+</html>
